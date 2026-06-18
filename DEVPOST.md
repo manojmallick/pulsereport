@@ -6,7 +6,7 @@
 
 **Live demo:** https://pulsereport-tan.vercel.app
 **Judge one-click demo:** https://pulsereport-tan.vercel.app/generate?demo=1
-**Repo:** _(add GitHub URL)_
+**Repo:** https://github.com/manojmallick/pulsereport
 
 ---
 
