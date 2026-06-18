@@ -5,7 +5,7 @@ import { buildDemoReport } from "@/lib/demoReport";
 
 export const runtime = "nodejs";
 
-const MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
+const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 
 const systemPrompt = `You are a senior product manager at a tech company.
 You write clear, direct, and insightful product updates.

@@ -120,7 +120,7 @@
     </div>
     <div class="card amber">
       <h3>② Generate <span class="tag">~60 sec</span></h3>
-      <p>Gemini 2.0 Flash returns four formats as structured JSON — each written <i>for</i> its reader, not adapted from a template.</p>
+      <p>Gemini 2.5 Flash returns four formats as structured JSON — each written <i>for</i> its reader, not adapted from a template.</p>
     </div>
   </div>
   <div class="panel" style="margin-top:24px;"><span class="m"># 5 input blocks  →  POST /api/report  →</span>  { <span class="a">slack</span>, <span class="a">ceo</span>, <span class="a">board</span>, <span class="a">standup</span> }</div>
@@ -165,7 +165,7 @@
   <div class="panel">Browser <span class="m">(App Router)</span>
    /generate  <span class="a">─POST─▶</span>  /api/report  <span class="m">(Node runtime)</span>
                               │ validate <span class="m">(metrics + shipped)</span>
-              <span class="c">key set</span>   ──▶  Gemini 2.0 Flash  ──▶  4 formats (JSON)
+              <span class="c">key set</span>   ──▶  Gemini 2.5 Flash  ──▶  4 formats (JSON)
               <span class="a">no key / error</span> ──▶  buildDemoReport()  <span class="m">deterministic fallback</span>
    /generate  <span class="a">─sessionStorage─▶</span>  /compare
    every action  <span class="a">─▶</span>  Novus.ai / Pendo  <span class="m">(report_generated, format_copied …)</span></div>

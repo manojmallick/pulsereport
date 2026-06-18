@@ -13,7 +13,7 @@ flowchart LR
         FE["Frontend<br/>Landing · Generate · Compare"]
         BE["API route<br/>/api/report"]
     end
-    GEM["☁️ Gemini 2.0 Flash"]
+    GEM["☁️ Gemini 2.5 Flash"]
     NOV["📈 Novus.ai / Pendo"]
 
     PM -->|"paste week / Judge Mode"| FE
@@ -32,7 +32,7 @@ sequenceDiagram
     participant U as User / Judge
     participant G as /generate (client)
     participant A as /api/report (server)
-    participant M as Gemini 2.0 Flash
+    participant M as Gemini 2.5 Flash
     participant N as Novus.ai
 
     U->>G: Open /generate?demo=1 (or click Generate)
