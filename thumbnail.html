@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1200px;height:800px;overflow:hidden;font-family:'Inter',sans-serif;background:#0a1020;}
+  .wrap{width:1200px;height:800px;position:relative;padding:80px 88px;display:flex;flex-direction:column;justify-content:center;}
+  .logo{display:flex;align-items:center;gap:20px;font-size:54px;font-weight:800;color:#f5f7fa;letter-spacing:-.03em;}
+  .mark{width:52px;height:52px;border-radius:12px;background:#003087;position:relative;box-shadow:0 0 0 1px #1c3a78;}
+  .mark::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:26px;height:4px;border-radius:2px;background:#f5a623;box-shadow:0 0 12px rgba(245,166,35,.8);}
+  h1{margin-top:40px;font-size:74px;font-weight:800;color:#f5f7fa;letter-spacing:-.03em;line-height:1.04;}
+  h1 .a{color:#f5a623;}
+  p.sub{margin-top:26px;font-size:30px;color:#9aa6bd;line-height:1.45;max-width:900px;}
+  .chips{margin-top:40px;display:flex;gap:16px;}
+  .chip{font-size:22px;font-weight:600;color:#dbe4f5;background:#111a2e;border:1px solid #243150;padding:12px 22px;border-radius:999px;display:flex;align-items:center;gap:10px;}
+  .dot{width:9px;height:9px;border-radius:50%;background:#f5a623;}
+  .foot{position:absolute;bottom:64px;left:88px;font-family:'JetBrains Mono',monospace;font-size:22px;color:#5d6b85;}
+  .foot .live{color:#f5f7fa;font-weight:600;}
+  .pulse{position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,transparent,#f5a623 25%,#f5a623 75%,transparent);box-shadow:0 0 16px rgba(245,166,35,.6);}
+</style></head>
+<body>
+<div class="wrap">
+  <div class="pulse"></div>
+  <div class="logo"><span class="mark"></span> PulseReport</div>
+  <h1>Your weekly product update.<br/><span class="a">60 seconds. Every format.</span></h1>
+  <p class="sub">One paste → Slack, CEO email, board slide &amp; eng standup.</p>
+  <div class="chips">
+    <span class="chip"><span class="dot"></span>Slack</span>
+    <span class="chip"><span class="dot"></span>CEO Email</span>
+    <span class="chip"><span class="dot"></span>Board</span>
+    <span class="chip"><span class="dot"></span>Standup</span>
+  </div>
+  <div class="foot"><span class="live">Mind the Product · World Product Day 2026</span> · #EveryoneShipsNow</div>
+</div>
+</body></html>
