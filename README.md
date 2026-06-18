@@ -20,6 +20,8 @@ Built for the **Mind the Product** hackathon · World Product Day 2026 · _Every
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-1A7F4E?style=for-the-badge)](#license)
 
+**▶ Live: [pulsereport-tan.vercel.app](https://pulsereport-tan.vercel.app)**  ·  **🧑‍⚖️ Judge demo: [/generate?demo=1](https://pulsereport-tan.vercel.app/generate?demo=1)**
+
 </div>
 
 ---

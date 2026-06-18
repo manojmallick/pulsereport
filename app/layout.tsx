@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "PulseReport — Your weekly product update in 60 seconds",
   description:
     "Paste your metrics, what shipped, and user feedback. Get your weekly product update in four formats: Slack, CEO email, board slide, and engineering standup — instantly.",
-  metadataBase: new URL("https://pulsereport.vercel.app"),
+  metadataBase: new URL("https://pulsereport-tan.vercel.app"),
   openGraph: {
     title: "PulseReport — Your weekly product update in 60 seconds",
     description: "Four audiences. One paste. Sixty seconds. Built for Mind the Product 2026.",
