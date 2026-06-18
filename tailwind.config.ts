@@ -1,0 +1,106 @@
+import type { Config } from "tailwindcss";
+
+/**
+ * Token system lifted verbatim from the Stitch design exports
+ * (pulsereport_strategy_system/DESIGN.md + the three code.html configs).
+ * Aesthetic: "Financial Brutalism" — The Economist / Bloomberg for PMs.
+ */
+const config: Config = {
+  darkMode: "class",
+  content: [
+    "./app/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        "on-tertiary-fixed-variant": "#34495d",
+        "secondary-container": "#feae2c",
+        "surface-bright": "#f9f9f6",
+        "surface-container-low": "#f4f4f1",
+        background: "#f9f9f6",
+        error: "#ba1a1a",
+        outline: "#747683",
+        "outline-variant": "#c4c6d4",
+        "on-surface-variant": "#444652",
+        "secondary-fixed-dim": "#ffb955",
+        "on-tertiary": "#ffffff",
+        "on-error-container": "#93000a",
+        "tertiary-fixed-dim": "#b4c9e2",
+        "surface-dim": "#dadad7",
+        secondary: "#835500",
+        "secondary-fixed": "#ffddb4",
+        "surface-container-high": "#e8e8e5",
+        "on-secondary-fixed": "#291800",
+        "surface-tint": "#3959b0",
+        "inverse-primary": "#b4c5ff",
+        "on-primary": "#ffffff",
+        "inverse-surface": "#2f312f",
+        tertiary: "#0e2337",
+        surface: "#f9f9f6",
+        "primary-fixed-dim": "#b4c5ff",
+        "on-tertiary-fixed": "#061d30",
+        "on-secondary": "#ffffff",
+        "on-primary-container": "#7f9df8",
+        "surface-container": "#eeeeeb",
+        "tertiary-fixed": "#cfe5fe",
+        "surface-variant": "#e2e3e0",
+        primary: "#001d59",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed": "#dbe1ff",
+        "on-primary-fixed": "#00174b",
+        "on-secondary-fixed-variant": "#633f00",
+        "on-error": "#ffffff",
+        "on-secondary-container": "#6b4500",
+        "on-background": "#1a1c1b",
+        "on-surface": "#1a1c1b",
+        "inverse-on-surface": "#f1f1ee",
+        "surface-container-highest": "#e2e3e0",
+        "error-container": "#ffdad6",
+        "tertiary-container": "#25394d",
+        "on-primary-fixed-variant": "#1c4197",
+        "on-tertiary-container": "#8ea3ba",
+        "primary-container": "#003087",
+      },
+      borderRadius: {
+        DEFAULT: "0.25rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        full: "9999px",
+      },
+      spacing: {
+        "margin-desktop": "48px",
+        "margin-mobile": "16px",
+        "container-max": "1280px",
+        gutter: "24px",
+        base: "4px",
+      },
+      maxWidth: {
+        "container-max": "1280px",
+      },
+      fontFamily: {
+        display: ["Inter", "sans-serif"],
+        "body-lg": ["Inter", "sans-serif"],
+        "label-caps": ["Inter", "sans-serif"],
+        "headline-lg": ["Inter", "sans-serif"],
+        "headline-md": ["Inter", "sans-serif"],
+        "body-sm": ["Inter", "sans-serif"],
+        "mono-data": ["Inter", "monospace"],
+        "headline-lg-mobile": ["Inter", "sans-serif"],
+      },
+      fontSize: {
+        display: ["48px", { lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: "700" }],
+        "body-lg": ["16px", { lineHeight: "1.6", letterSpacing: "0em", fontWeight: "400" }],
+        "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "700" }],
+        "headline-lg": ["32px", { lineHeight: "1.2", letterSpacing: "-0.03em", fontWeight: "700" }],
+        "headline-md": ["20px", { lineHeight: "1.3", letterSpacing: "-0.02em", fontWeight: "600" }],
+        "body-sm": ["14px", { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400" }],
+        "mono-data": ["13px", { lineHeight: "1", letterSpacing: "-0.01em", fontWeight: "500" }],
+        "headline-lg-mobile": ["24px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;
