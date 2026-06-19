@@ -31,7 +31,9 @@ formats**, instantly:
 - **Engineering standup** — last week / this week, deploy notes, metrics
 
 Each format is written *for* its reader, not adapted from a template. A `/compare`
-view shows all four side by side with word counts and one-click "Share all".
+view shows all four side by side with word counts, and **"Share link" gives you a
+no-account shareable URL** — the whole report is compressed into the link itself,
+so you can forward it to a CEO who opens it instantly (no database, no login).
 
 ## How we built it
 
