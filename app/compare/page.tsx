@@ -5,6 +5,7 @@ import Link from "next/link";
 import { TopNav } from "@/components/TopNav";
 import { Footer } from "@/components/Footer";
 import { Icon } from "@/components/Icon";
+import { ReportBody } from "@/components/ReportBody";
 import { trackEvent } from "@/lib/analytics";
 import { STORAGE_KEY, type FormatKey, type Report, type StoredReport } from "@/lib/types";
 
@@ -178,12 +179,8 @@ export default function ComparePage() {
                   </span>
                 </button>
               </div>
-              <div
-                className={`p-6 flex-grow font-body-lg text-body-lg text-on-surface-variant whitespace-pre-wrap ${
-                  c.italic ? "italic" : ""
-                }`}
-              >
-                {report[c.key]}
+              <div className={`p-6 flex-grow ${c.italic ? "italic" : ""}`}>
+                <ReportBody text={report[c.key]} />
               </div>
               <div className="px-6 py-4 bg-surface-container-low flex items-center">
                 <span className={`px-3 py-1 rounded-full font-mono-data text-mono-data border ${c.badge}`}>

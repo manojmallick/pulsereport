@@ -5,6 +5,7 @@ import Link from "next/link";
 import { TopNav } from "@/components/TopNav";
 import { Footer } from "@/components/Footer";
 import { Icon } from "@/components/Icon";
+import { ReportBody } from "@/components/ReportBody";
 import { trackEvent } from "@/lib/analytics";
 import {
   FORMATS,
@@ -318,8 +319,8 @@ export default function GeneratePage() {
                     <Icon name={copied ? "check" : "content_copy"} size={14} />
                   </button>
                 </div>
-                <div className="flex-grow bg-surface-container-low rounded p-6 font-mono-data text-[12px] leading-relaxed text-tertiary custom-scrollbar overflow-y-auto whitespace-pre-wrap fade-up">
-                  {report[active]}
+                <div className="flex-grow bg-surface-container-low rounded p-6 custom-scrollbar overflow-y-auto fade-up">
+                  <ReportBody text={report[active]} />
                 </div>
                 <div className="flex items-center justify-between mt-4">
                   <p className="font-body-sm text-on-surface-variant opacity-70">
