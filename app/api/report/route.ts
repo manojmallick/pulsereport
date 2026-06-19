@@ -1,11 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
 import type { Report, ReportInput } from "@/lib/types";
 import { buildDemoReport } from "@/lib/demoReport";
 
 export const runtime = "nodejs";
 
 const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+
+// Structured output. Without an explicit schema, gemini-2.5-flash "front-loads"
+// the slack/ceo fields and returns near-empty board/standup. Declaring all four
+// as required, described fields forces it to populate every format.
+const RESPONSE_SCHEMA = {
+  type: SchemaType.OBJECT,
+  properties: {
+    slack: { type: SchemaType.STRING, description: "Slack message, <=300 chars, emoji, scannable, action-first" },
+    ceo: { type: SchemaType.STRING, description: "CEO email, two full strategic paragraphs with specific numbers" },
+    board: { type: SchemaType.STRING, description: "Exactly 5 crisp board bullets, each on its own line starting with a bullet" },
+    standup: { type: SchemaType.STRING, description: "Engineering standup: a 'Last week:' bullet list then a 'This week focus:' bullet list" },
+  },
+  required: ["slack", "ceo", "board", "standup"],
+};
 
 const systemPrompt = `You are a senior product manager at a tech company.
 You write clear, direct, and insightful product updates.
@@ -95,7 +109,12 @@ export async function POST(req: NextRequest) {
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
       model: MODEL,
-      generationConfig: { responseMimeType: "application/json", temperature: 0.6 },
+      generationConfig: {
+        responseMimeType: "application/json",
+        responseSchema: RESPONSE_SCHEMA,
+        temperature: 0.6,
+        maxOutputTokens: 4096,
+      },
     });
 
     const result = await model.generateContent(buildPrompt(input));
@@ -106,10 +125,20 @@ export async function POST(req: NextRequest) {
       .replace(/\s*```$/i, "")
       .trim();
 
-    const report = coerceReport(JSON.parse(cleaned));
-    if (!report.slack && !report.ceo && !report.board && !report.standup) {
+    const g = coerceReport(JSON.parse(cleaned));
+    if (!g.slack && !g.ceo && !g.board && !g.standup) {
       throw new Error("Empty model response");
     }
+
+    // Belt-and-suspenders: if the model ever drops a field, fill it from the
+    // deterministic demo so no output tab is ever blank.
+    const demo = buildDemoReport(input);
+    const report: Report = {
+      slack: g.slack || demo.slack,
+      ceo: g.ceo || demo.ceo,
+      board: g.board || demo.board,
+      standup: g.standup || demo.standup,
+    };
     return NextResponse.json({ report, source: "gemini" });
   } catch (err) {
     // Never fail the demo: fall back to the deterministic report.
