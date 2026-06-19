@@ -149,8 +149,8 @@ export default function ComparePage() {
           </button>
         </header>
 
-        {/* Comparison grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+        {/* Comparison grid — items-start so cards size to their content (no dead space) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-start">
           {CARDS.map((c) => (
             <div
               key={c.key}
@@ -179,7 +179,7 @@ export default function ComparePage() {
                   </span>
                 </button>
               </div>
-              <div className={`p-6 flex-grow ${c.italic ? "italic" : ""}`}>
+              <div className={`p-6 ${c.italic ? "italic" : ""}`}>
                 <ReportBody text={report[c.key]} />
               </div>
               <div className="px-6 py-4 bg-surface-container-low flex items-center">

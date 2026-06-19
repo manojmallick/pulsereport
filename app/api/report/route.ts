@@ -14,7 +14,7 @@ const RESPONSE_SCHEMA = {
   type: SchemaType.OBJECT,
   properties: {
     slack: { type: SchemaType.STRING, description: "Slack message, <=300 chars, emoji, scannable, action-first" },
-    ceo: { type: SchemaType.STRING, description: "CEO email, two full strategic paragraphs with specific numbers" },
+    ceo: { type: SchemaType.STRING, description: "CEO email, exactly TWO tight paragraphs, ~150 words total — para 1: what happened + why it matters; para 2: the recommendation. Specific numbers, no padding." },
     board: { type: SchemaType.STRING, description: "Exactly 5 crisp board bullets, each on its own line starting with a bullet" },
     standup: { type: SchemaType.STRING, description: "Engineering standup: a 'Last week:' bullet list then a 'This week focus:' bullet list" },
   },
@@ -51,7 +51,7 @@ Generate all 4 formats. Respond with ONLY this JSON structure (no markdown wrapp
 
 {
   "slack": "Slack message — <=300 chars, use emoji, scannable, action-oriented. One line per topic with an emoji bullet.",
-  "ceo": "CEO update — 2 confident paragraphs. Para 1: what happened and what it means strategically. Para 2: what you recommend and why. Specific numbers. No hedging.",
+  "ceo": "CEO update — exactly 2 tight paragraphs, ~150 words total. Para 1: what happened and what it means strategically. Para 2: what you recommend and why. Specific numbers. No hedging, no padding.",
   "board": "Board slide bullets — exactly 5 bullets, crisp. Format: '• Metric/topic: number (trend) — one insight'. Prioritize business impact.",
   "standup": "Engineering standup — structured as 'Last week:' (bullet list) and 'This week focus:' (bullet list). Technical and specific. Include relevant metrics and deployment notes."
 }
