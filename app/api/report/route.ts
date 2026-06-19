@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
+import { GoogleGenerativeAI, SchemaType, type GenerationConfig } from "@google/generative-ai";
 import type { Report, ReportInput } from "@/lib/types";
 import { buildDemoReport } from "@/lib/demoReport";
 
@@ -107,15 +107,16 @@ export async function POST(req: NextRequest) {
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: MODEL,
-      generationConfig: {
-        responseMimeType: "application/json",
-        responseSchema: RESPONSE_SCHEMA,
-        temperature: 0.6,
-        maxOutputTokens: 4096,
-      },
-    });
+    // thinkingBudget:512 cuts generation from ~11s to ~6s while keeping all four
+    // formats rich (0 makes content thin; default thinks too long for a live demo).
+    const generationConfig: GenerationConfig & { thinkingConfig?: { thinkingBudget: number } } = {
+      responseMimeType: "application/json",
+      responseSchema: RESPONSE_SCHEMA,
+      temperature: 0.6,
+      maxOutputTokens: 4096,
+      thinkingConfig: { thinkingBudget: 512 },
+    };
+    const model = genAI.getGenerativeModel({ model: MODEL, generationConfig });
 
     const result = await model.generateContent(buildPrompt(input));
     const text = result.response.text().trim();

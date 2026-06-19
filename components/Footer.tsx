@@ -15,7 +15,7 @@ export function Footer() {
         </Link>
         <a
           className="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors"
-          href="mailto:hello@learnhubplay.nl?subject=PulseReport%20support"
+          href="mailto:manoj.mallick079@gmail.com?subject=PulseReport%20support"
         >
           Contact Support
         </a>

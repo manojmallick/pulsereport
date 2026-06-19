@@ -209,7 +209,7 @@ export default function ComparePage() {
               Modify Parameters
             </Link>
             <a
-              href="mailto:hello@learnhubplay.nl?subject=PulseReport%20%E2%80%94%20new%20format%20request&body=I%27d%20love%20a%20format%20for%3A%20"
+              href="mailto:manoj.mallick079@gmail.com?subject=PulseReport%20%E2%80%94%20new%20format%20request&body=I%27d%20love%20a%20format%20for%3A%20"
               onClick={() => trackEvent("add_format_requested", {})}
               className="px-6 py-3 border border-white text-white rounded-lg font-bold hover:bg-white/10 transition-colors"
             >

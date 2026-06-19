@@ -28,8 +28,8 @@ export default function TermsPage() {
           </Section>
           <Section title="Contact">
             Reach us at{" "}
-            <a className="text-primary hover:text-secondary" href="mailto:hello@learnhubplay.nl">
-              hello@learnhubplay.nl
+            <a className="text-primary hover:text-secondary" href="mailto:manoj.mallick079@gmail.com">
+              manoj.mallick079@gmail.com
             </a>
             .
           </Section>
