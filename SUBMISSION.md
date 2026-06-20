@@ -9,9 +9,14 @@ video and pasting these answers into Devpost. Work top to bottom.
 - **Deadline:** June 20, 2026 · 5:00 PM GMT
 
 ✅ Verified green: all 7 routes 200 · live Gemini (~6s, all 4 formats) · Judge Mode ·
-shareable links (stateless) · Novus events firing (`report_generated`, `format_switched`,
-`format_copied`, `report_shared`, `shared_report_viewed`) delivering to `data.pendo.io` ·
+shareable links (stateless) · Novus events firing (`report_generated`, `copy_<format>`,
+`view_<format>`, `report_shared`, `shared_report_viewed`) delivering to `data.pendo.io` ·
 mobile no-overflow.
+
+> **Reading the Novus dashboard:** the copied format is in the event **name** —
+> count `copy_ceo` vs `copy_slack` vs `copy_board` vs `copy_standup` to get your
+> "which format wins" stat. Real vs judge traffic = the event's `urlPath`
+> (`/generate` = real PM, `/generate?demo=1` = judge demo).
 
 ---
 

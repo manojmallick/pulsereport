@@ -115,9 +115,13 @@ npm run dev                        # http://localhost:3000
 
 ## 📈 Analytics events (the Novus.ai story)
 
-`report_generated` · `format_copied` · `format_switched` · `report_shared` · `sample_loaded`
+`report_generated` · `copy_<format>` (`copy_ceo`/`copy_slack`/`copy_board`/`copy_standup`) ·
+`view_<format>` · `report_shared` · `shared_report_viewed` · `sample_loaded`
 
-These power the submission narrative — _which format wins, which section gets edited, how long judges read before copying._ Each `report_generated` event carries a `judge_mode` flag so demo traffic is separable from real usage.
+The format is encoded in the **event name**, so Pendo's raw feed shows exactly which format
+was copied/viewed without relying on custom properties. Count `copy_ceo` vs `copy_slack` for
+the "which format wins" headline. Real vs judge traffic is separable by each event's
+`urlPath` (`/generate` for real PMs vs `/generate?demo=1` for the judge demo).
 
 ## 🎨 Design system
 
