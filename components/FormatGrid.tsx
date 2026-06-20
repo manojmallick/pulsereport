@@ -58,7 +58,9 @@ export function FormatGrid({ report, via = "compare" }: { report: Report; via?: 
     try {
       await navigator.clipboard.writeText(report[key]);
       setCopiedKey(key);
-      trackEvent("format_copied", { format: key, word_count: wordCount(report[key]), via });
+      // Format is in the EVENT NAME (copy_ceo, copy_slack…) so Pendo's raw feed
+      // shows exactly what was copied without relying on custom properties.
+      trackEvent(`copy_${key}`, { format: key, word_count: wordCount(report[key]), via });
       setTimeout(() => setCopiedKey(null), 2000);
     } catch {
       /* clipboard unavailable */

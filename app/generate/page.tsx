@@ -118,7 +118,8 @@ export default function GeneratePage() {
     try {
       await navigator.clipboard.writeText(report[active]);
       setCopied(true);
-      trackEvent("format_copied", {
+      // Format encoded in the event name (copy_ceo…) so it's visible in Pendo's feed.
+      trackEvent(`copy_${active}`, {
         format: active,
         word_count: report[active].split(/\s+/).filter(Boolean).length,
       });
@@ -257,7 +258,7 @@ export default function GeneratePage() {
                   key={f.key}
                   onClick={() => {
                     setActive(f.key);
-                    trackEvent("format_switched", { to: f.key });
+                    trackEvent(`view_${f.key}`, { format: f.key });
                   }}
                   className={`px-4 py-2 text-label-caps rounded-full flex items-center gap-2 transition-all ${
                     isActive
