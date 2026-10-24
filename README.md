@@ -113,6 +113,15 @@ npm run dev                        # http://localhost:3000
 | `GEMINI_MODEL`              | Optional model override (default `gemini-2.5-flash`).                          |
 | `NEXT_PUBLIC_NOVUS_API_KEY` | Pendo/Novus.ai agent key. When empty, analytics calls are safe no-ops.        |
 
+### Scripts
+
+| Command | What it does |
+|---|---|
+| `npm run dev` | Dev server on `http://localhost:3000` |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | Next.js lint |
+
 ## 📈 Analytics events (the Novus.ai story)
 
 `report_generated` · `copy_<format>` (`copy_ceo`/`copy_slack`/`copy_board`/`copy_standup`) ·
